@@ -15,7 +15,7 @@ bank.create_account(100000, sonia)
 
 #create admin
 fariha = Admin("Fariha", "Manikdi", "3636663", "222")
-# print(fariha.isAdmin)
+
 bank.create_account(10, fariha)
 
 #deposit money
@@ -34,6 +34,7 @@ bank.transfer_money(20000, sonia, snigdha)
 
 # transaction history
 bank.check_transaction('111')
+bank.check_transaction('112')
 
 #check individual balance
 bank.check_individual_balance(snigdha)

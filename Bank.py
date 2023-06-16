@@ -64,12 +64,12 @@ class Bank:
             
             if sender.nid == account.nid:
                 if sender.balance >= amount:
-                    dic = {'amount': amount, 'info': 'transferred' ,'time': now + timedelta(hours=5), 'nid': sender.nid}
+                    dic = {'amount': amount, 'info': 'transferred' ,'time': now + timedelta(hours=5), 'nid': sender.nid, 'name': sender.name}
                     self.transactions.append(dic)
                     account.balance -= amount
             if sender.balance >= amount:
                 if receiver.nid == account.nid:
-                    dic = {'amount': amount, 'info': 'received' ,'time': now + timedelta(hours=5), 'nid': receiver.nid}
+                    dic = {'amount': amount, 'info': 'received' ,'time': now + timedelta(hours=5), 'nid': receiver.nid, 'name': receiver.name}
                     self.transactions.append(dic)
                     account.balance += amount
           
@@ -93,7 +93,7 @@ class Bank:
             transaction_values = transaction.values()
             if nid in transaction_values:
                 if transaction['nid'] == nid:                   
-                    print(f"{transaction['amount']}.00 {transaction['info']}  at {transaction['time']} ")
+                    print(f"{transaction['name']} {transaction['info']} {transaction['amount']}.00  at {transaction['time']} ")
     
     def check_bank_balance(self, user):
         if user.isAdmin == True:
